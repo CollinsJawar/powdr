@@ -27,7 +27,7 @@ impl<T: Display> Display for Object<T> {
         for s in &self.pil {
             writeln!(f, "{s}")?;
         }
-        if !self.links.is_empty() {
+        if (!self.links.is_empty()) {
             writeln!(f, "// Links:")?;
             for link in &self.links {
                 writeln!(f, "// {link}")?;
@@ -71,7 +71,7 @@ impl<T: Display> Display for Operation<T> {
             f,
             "operation \"{}\" with id {:?} with params {}",
             self.name,
-            self.id.as_ref().map(|id| id.to_string()),
+            self.id,
             self.params,
         )
     }
